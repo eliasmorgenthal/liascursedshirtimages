@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   background: #07070c;
@@ -145,9 +146,8 @@ body::before {
   background: rgba(255,255,255,0.15);
 }
 
-/* GALLERY */
+/* ===== GALLERY FIXED ===== */
 
-/* MAKE SURE GALLERY ELEMENTS STACK PROPERLY */
 .viewer {
   position: relative;
   width: 90%;
@@ -157,12 +157,9 @@ body::before {
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
-
-  z-index: 1;
+  overflow: hidden; /* IMPORTANT */
 }
 
-/* IMAGE stays BELOW arrows */
 #slideshow {
   width: 100%;
   max-height: 70vh;
@@ -172,13 +169,13 @@ body::before {
   background: #0f0f18;
   border-radius: 18px;
 
-  display: block;
-
   position: relative;
-  z-index: 1; /* 👈 important */
+  z-index: 1;
+
+  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-/* ARROWS MUST BE ABOVE IMAGE */
+/* ARROWS (ONLY ONCE, CLEAN) */
 .arrow {
   position: absolute;
   top: 50%;
@@ -198,40 +195,9 @@ body::before {
 
   cursor: pointer;
 
-  z-index: 10; /* 👈 THIS FIXES IT */
-}
-
-.left {
-  left: 10px;
   z-index: 10;
-}
 
-.right {
-  right: 10px;
-  z-index: 10;
-}
-
-/* ARROWS */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 55px;
-  height: 55px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 2.5rem;
-
-  background: rgba(255,255,255,0.06);
-  border-radius: 14px;
-
-  cursor: pointer;
-
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 .arrow:hover {
@@ -258,41 +224,11 @@ body::before {
   cursor: pointer;
 }
 
-/* RIPPLE */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-
-/* ===== SLIDE ANIMATION LAYER ===== */
-
-#slideshow {
-  position: relative;
-}
-
-/* wrapper effect */
-.viewer {
-  overflow: hidden;
-}
-
-/* incoming image */
+/* SLIDE ANIMATION */
 .slide-in {
   animation: slideIn 0.35s ease forwards;
 }
 
-/* outgoing image */
 .slide-out {
   animation: slideOut 0.35s ease forwards;
 }
@@ -315,6 +251,23 @@ body::before {
   }
   to {
     transform: translateX(-60px);
+    opacity: 0;
+  }
+}
+
+/* RIPPLE */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
     opacity: 0;
   }
 }
