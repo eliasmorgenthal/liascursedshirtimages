@@ -42,6 +42,11 @@ window.onload = () => {
 /* ================= OPEN GALLERY ================= */
 function openGallery(name) {
 
+  if (!GALLERIES[name]) {
+    console.error("Gallery not found:", name);
+    return;
+  }
+
   currentGallery = GALLERIES[name];
   currentIndex = 0;
 
