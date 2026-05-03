@@ -11,16 +11,20 @@
 
   <div class="container">
 
-    <h1>Image Gallery Slideshow</h1>
+  <img id="slideshow">
 
-    <!-- SLIDESHOW -->
-    <img id="slideshow" src="" alt="Gallery Image">
+  <!-- OVERLAY CONTROLS -->
+  <button class="nav left" onclick="prevImage()">‹</button>
+  <button class="nav right" onclick="nextImage()">›</button>
 
-    <!-- CONTROLS -->
-    <div class="controls">
-      <button onclick="prevImage()">⟵ Previous</button>
-      <button onclick="nextImage()">Next ⟶</button>
-    </div>
+</div>
+
+<div class="gallery-buttons">
+  <button onclick="changeGallery('PlaneAccident')">Plane</button>
+  <button onclick="changeGallery('Cars')">Cars</button>
+  <button onclick="changeGallery('Race')">Race</button>
+  <button onclick="changeGallery('ICE')">ICE</button>
+</div>
 
     <!-- GALLERY SELECT -->
     <div class="gallery-buttons">

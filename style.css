@@ -1,67 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #111;
-  color: white;
+  margin: 0;
+  background: #0b0b0f;
   font-family: Arial, sans-serif;
-  text-align: center;
-  min-height: 100vh;
-
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .container {
   width: 90%;
   max-width: 900px;
-}
-
-h1 {
-  margin-bottom: 25px;
-  font-size: 2.5rem;
+  position: relative;
 }
 
 #slideshow {
   width: 100%;
-  max-height: 550px;
-  object-fit: cover;
-
-  border-radius: 16px;
-
-  box-shadow:
-    0 0 20px rgba(255,255,255,0.15);
-
+  height: 550px;
+  object-fit: contain;
+  background: #111;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
   transition: opacity 0.4s ease;
 }
 
-.controls,
-.gallery-buttons {
-  margin-top: 20px;
-}
-
-button {
-  background: #222;
-  color: white;
-
+/* LEFT/RIGHT overlay buttons */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.4);
   border: none;
-  border-radius: 10px;
-
-  padding: 12px 20px;
-  margin: 5px;
-
+  color: white;
+  padding: 10px 15px;
   cursor: pointer;
-
-  font-size: 1rem;
-
+  border-radius: 10px;
   transition: 0.2s;
 }
 
-button:hover {
-  background: #444;
-  transform: scale(1.05);
+.nav:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+/* bottom gallery buttons */
+.gallery-buttons {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.gallery-buttons button {
+  background: #1c1c25;
+  border: 1px solid #333;
+  color: white;
+  padding: 10px 14px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gallery-buttons button:hover {
+  background: #2a2a3a;
 }
