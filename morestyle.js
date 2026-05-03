@@ -1,12 +1,13 @@
 
 const GALLERIES = {
 
-  PlaneAccident: ["images/9111.png","images/9112.png","images/9113.png","images/9114.png"],
+  PlaneAccident: ["images/9111.png","images/9112.png","images/9113.png","images/9114.png","images/9115.png","images/9116.png"],
   Cars: ["images/FAF1.png","images/FAF2.png"],
   Race: ["images/race1.png","images/race2.png","images/race3.png"],
   Ped: ["images/pedo1.png","images/pedo2.png"],
-  ICE: ["images/ICE1.png","images/ICE2.png","images/ICE3.png"],
-  Down: ["images/down.png","images/FAF2.png"],
+  ICE: ["images/ICE1.png","images/ICE2.png","images/ICE3.png","images/ICE4.png","images/ICE5.png","images/ICE6.png"],
+  Down: ["images/down1.png","images/FAF2.png","images/down2.png","images/strange1.png"],
+  Strange: ["images/strange1.png","images/strange2.png"]
   More: ["images/bombi.png"]
 
 };
