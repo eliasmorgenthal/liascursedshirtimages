@@ -1,3 +1,4 @@
+
 const GALLERIES = {
 
   PlaneAccident: ["images/9111.png","images/9112.png","images/9113.png","images/9114.png"],
@@ -15,17 +16,17 @@ let currentIndex = 0;
 
 const start = document.getElementById("start");
 const gallery = document.getElementById("gallery");
-const menu = document.getElementById("menu");
 const slideshow = document.getElementById("slideshow");
+const menu = document.getElementById("menu");
 
-/* ================= START SEQUENCE ================= */
+/* ===== INTRO ===== */
 window.onload = () => {
   setTimeout(() => {
     menu.classList.add("show");
   }, 1200);
 };
 
-/* ================= OPEN GALLERY ================= */
+/* ===== OPEN GALLERY ===== */
 function openGallery(name) {
 
   currentGallery = GALLERIES[name];
@@ -43,7 +44,7 @@ function openGallery(name) {
   showImage();
 }
 
-/* ================= BACK HOME ================= */
+/* ===== BACK ===== */
 function goHome() {
 
   gallery.classList.remove("active");
@@ -52,17 +53,13 @@ function goHome() {
     gallery.classList.add("hidden");
 
     start.classList.remove("hidden");
-
-    setTimeout(() => {
-      start.classList.add("active");
-      menu.classList.add("show");
-    }, 50);
+    start.classList.add("active");
 
   }, 400);
 
 }
 
-/* ================= IMAGE CONTROL ================= */
+/* ===== IMAGE ===== */
 function showImage() {
   slideshow.style.opacity = 0.2;
   slideshow.src = currentGallery[currentIndex];
@@ -72,6 +69,7 @@ function showImage() {
   };
 }
 
+/* ===== NAV ===== */
 function nextImage() {
   currentIndex++;
   if (currentIndex >= currentGallery.length) currentIndex = 0;
@@ -83,3 +81,14 @@ function prevImage() {
   if (currentIndex < 0) currentIndex = currentGallery.length - 1;
   showImage();
 }
+
+/* ===== RIPPLE ===== */
+document.addEventListener("click", (e) => {
+  const r = document.createElement("span");
+  r.className = "ripple";
+  r.style.left = e.clientX + "px";
+  r.style.top = e.clientY + "px";
+  document.body.appendChild(r);
+
+  setTimeout(() => r.remove(), 600);
+});

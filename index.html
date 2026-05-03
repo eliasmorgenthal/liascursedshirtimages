@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery UI</title>
-
+  <title>Glass Gallery</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= START SCREEN ================= -->
+<!-- INTRO -->
+<div id="intro">
+  <h1>LOADING</h1>
+</div>
+
+<!-- HOME -->
 <div id="start" class="screen active">
 
   <h1 class="title">MEDIA GALLERY</h1>
-  <p class="subtitle">Select a category to continue</p>
+  <p class="subtitle">Choose a category</p>
 
-  <div id="menu" class="menu hidden">
+  <div id="menu" class="menu">
 
     <button onclick="openGallery('PlaneAccident')">Plane Accident</button>
     <button onclick="openGallery('Cars')">Cars</button>
@@ -30,7 +34,7 @@
 
 </div>
 
-<!-- ================= GALLERY ================= -->
+<!-- GALLERY -->
 <div id="gallery" class="screen hidden">
 
   <div class="topbar">
