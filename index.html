@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery App</title>
+  <title>Gallery UI</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= HOME ================= -->
-<div id="home" class="screen show">
+<!-- ================= START SCREEN ================= -->
+<div id="start" class="screen active">
 
-  <h1 class="title">Choose a Theme</h1>
+  <h1 class="title">MEDIA GALLERY</h1>
+  <p class="subtitle">Select a category to continue</p>
 
-  <div class="themes">
+  <div id="menu" class="menu hidden">
 
     <button onclick="openGallery('PlaneAccident')">Plane Accident</button>
     <button onclick="openGallery('Cars')">Cars</button>
