@@ -1,3 +1,4 @@
+
 const GALLERIES = {
 
   PlaneAccident: ["images/9111.png","images/9112.png","images/9113.png","images/9114.png"],
@@ -18,14 +19,26 @@ const gallery = document.getElementById("gallery");
 const slideshow = document.getElementById("slideshow");
 const menu = document.getElementById("menu");
 
-/* INTRO */
+/* ================= PRELOAD ALL IMAGES ================= */
+function preloadAllImages() {
+  Object.values(GALLERIES).forEach(list => {
+    list.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  });
+}
+
+/* ================= INTRO ================= */
 window.onload = () => {
+  preloadAllImages(); // 👈 IMPORTANT FIX
+
   setTimeout(() => {
     menu.classList.add("show");
   }, 1200);
 };
 
-/* OPEN GALLERY */
+/* ================= OPEN GALLERY ================= */
 function openGallery(name) {
 
   currentGallery = GALLERIES[name];
@@ -40,10 +53,10 @@ function openGallery(name) {
     gallery.classList.add("active");
   }, 50);
 
-  showImage();
+  showImage(true);
 }
 
-/* BACK HOME */
+/* ================= BACK ================= */
 function goHome() {
 
   gallery.classList.remove("active");
@@ -55,19 +68,29 @@ function goHome() {
     start.classList.add("active");
 
   }, 400);
-
 }
 
-/* IMAGES */
-function showImage() {
-  slideshow.style.opacity = 0.2;
-  slideshow.src = currentGallery[currentIndex];
+/* ================= SMOOTH SLIDE SWITCH ================= */
+function showImage(firstLoad = false) {
 
-  slideshow.onload = () => {
-    slideshow.style.opacity = 1;
-  };
+  if (!firstLoad) {
+    slideshow.classList.remove("slide-in");
+    slideshow.classList.add("slide-out");
+  }
+
+  setTimeout(() => {
+
+    slideshow.src = currentGallery[currentIndex];
+
+    slideshow.onload = () => {
+      slideshow.classList.remove("slide-out");
+      slideshow.classList.add("slide-in");
+    };
+
+  }, firstLoad ? 0 : 200);
 }
 
+/* ================= NAVIGATION ================= */
 function nextImage() {
   currentIndex++;
   if (currentIndex >= currentGallery.length) currentIndex = 0;
@@ -80,7 +103,7 @@ function prevImage() {
   showImage();
 }
 
-/* RIPPLE */
+/* ================= RIPPLE ================= */
 document.addEventListener("click", (e) => {
   const ripple = document.createElement("span");
   ripple.className = "ripple";

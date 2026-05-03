@@ -231,3 +231,47 @@ body::before {
     opacity: 0;
   }
 }
+
+
+/* ===== SLIDE ANIMATION LAYER ===== */
+
+#slideshow {
+  position: relative;
+}
+
+/* wrapper effect */
+.viewer {
+  overflow: hidden;
+}
+
+/* incoming image */
+.slide-in {
+  animation: slideIn 0.35s ease forwards;
+}
+
+/* outgoing image */
+.slide-out {
+  animation: slideOut 0.35s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+}
