@@ -1,7 +1,3 @@
-// =========================
-// IMAGE GALLERIES
-// =========================
-
 const GALLERIES = {
 
   PlaneAccident: [
@@ -45,40 +41,21 @@ const GALLERIES = {
 
 };
 
-// =========================
-// VARIABLES
-// =========================
-
 let currentGallery = GALLERIES.PlaneAccident;
 let currentIndex = 0;
 
-const slideshow =
-  document.getElementById("slideshow");
-
-// =========================
-// SHOW IMAGE
-// =========================
+const slideshow = document.getElementById("slideshow");
 
 function showImage(index) {
-
   slideshow.style.opacity = 0;
 
   setTimeout(() => {
-
     slideshow.src = currentGallery[index];
-
     slideshow.style.opacity = 1;
-
-  }, 200);
-
+  }, 150);
 }
 
-// =========================
-// NEXT IMAGE
-// =========================
-
 function nextImage() {
-
   currentIndex++;
 
   if (currentIndex >= currentGallery.length) {
@@ -86,15 +63,9 @@ function nextImage() {
   }
 
   showImage(currentIndex);
-
 }
 
-// =========================
-// PREVIOUS IMAGE
-// =========================
-
 function prevImage() {
-
   currentIndex--;
 
   if (currentIndex < 0) {
@@ -102,31 +73,13 @@ function prevImage() {
   }
 
   showImage(currentIndex);
-
 }
 
-// =========================
-// CHANGE GALLERY
-// =========================
-
-function changeGallery(galleryName) {
-
-  currentGallery = GALLERIES[galleryName];
-
+function changeGallery(name) {
+  currentGallery = GALLERIES[name];
   currentIndex = 0;
-
   showImage(currentIndex);
-
 }
 
-// =========================
-// AUTO SLIDESHOW
-// =========================
-
-setInterval(nextImage, 4000);
-
-// =========================
 // START
-// =========================
-
 showImage(currentIndex);
