@@ -5,7 +5,7 @@ const GALLERIES = {
   Race: ["images/race1.png","images/race2.png","images/race3.png"],
   Ped: ["images/pedo1.png","images/pedo2.png"],
   ICE: ["images/ICE1.png","images/ICE2.png","images/ICE3.png"],
-  Down: ["images/down.png","images/FAF2.png","images/ICE3.png"],
+  Down: ["images/down.png","images/FAF2.png"],
   More: ["images/bombi.png"]
 
 };
