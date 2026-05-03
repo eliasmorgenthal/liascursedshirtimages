@@ -3,43 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery Slideshow</title>
-
+  <title>Gallery App</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
+<!-- ================= HOME ================= -->
+<div id="home" class="screen show">
 
-  <img id="slideshow">
+  <h1 class="title">Choose a Theme</h1>
 
-  <!-- OVERLAY CONTROLS -->
-  <button class="nav left" onclick="prevImage()">‹</button>
-  <button class="nav right" onclick="nextImage()">›</button>
+  <div class="themes">
 
-</div>
-
-<div class="gallery-buttons">
-  <button onclick="changeGallery('PlaneAccident')">Plane</button>
-  <button onclick="changeGallery('Cars')">Cars</button>
-  <button onclick="changeGallery('Race')">Race</button>
-  <button onclick="changeGallery('ICE')">ICE</button>
-</div>
-
-    <!-- GALLERY SELECT -->
-    <div class="gallery-buttons">
-      <button onclick="changeGallery('PlaneAccident')">PlaneAccident</button>
-		<button onclick="changeGallery('Cars')">Cars</button>
-		<button onclick="changeGallery('Race')">Race</button>
-		<button onclick="changeGallery('Ped')">Ped</button>
-		<button onclick="changeGallery('ICE')">ICE</button>
-		<button onclick="changeGallery('Down')">Down</button>
-		<button onclick="changeGallery('More')">More</button>
-    </div>
+    <button onclick="openGallery('PlaneAccident')">Plane Accident</button>
+    <button onclick="openGallery('Cars')">Cars</button>
+    <button onclick="openGallery('Race')">Race</button>
+    <button onclick="openGallery('ICE')">ICE</button>
+    <button onclick="openGallery('Ped')">Ped</button>
+    <button onclick="openGallery('Down')">Down</button>
+    <button onclick="openGallery('More')">More</button>
 
   </div>
 
-  <script src="morestyle.js"></script>
+</div>
 
+<!-- ================= GALLERY ================= -->
+<div id="gallery" class="screen hidden">
+
+  <div class="topbar">
+    <button onclick="goHome()">← Back</button>
+  </div>
+
+  <div class="viewer">
+
+    <div class="arrow left" onclick="prevImage()">‹</div>
+
+    <img id="slideshow">
+
+    <div class="arrow right" onclick="nextImage()">›</div>
+
+  </div>
+
+</div>
+
+<script src="morestyle.js"></script>
 </body>
 </html>

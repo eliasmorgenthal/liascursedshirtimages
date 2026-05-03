@@ -41,20 +41,58 @@ const GALLERIES = {
 
 };
 
-let currentGallery = GALLERIES.PlaneAccident;
+let currentGallery = [];
 let currentIndex = 0;
 
+const home = document.getElementById("home");
+const gallery = document.getElementById("gallery");
 const slideshow = document.getElementById("slideshow");
 
-function showImage(index) {
-  slideshow.style.opacity = 0;
+/* ================= HOME → GALLERY ================= */
+function openGallery(name) {
+  currentGallery = GALLERIES[name];
+  currentIndex = 0;
+
+  home.classList.remove("show");
+  gallery.classList.remove("hidden");
 
   setTimeout(() => {
-    slideshow.src = currentGallery[index];
-    slideshow.style.opacity = 1;
-  }, 150);
+    gallery.classList.add("show");
+    home.classList.add("hidden");
+  }, 300);
+
+  showImage();
 }
 
+/* ================= BACK ================= */
+function goHome() {
+
+  gallery.classList.remove("show");
+
+  setTimeout(() => {
+    gallery.classList.add("hidden");
+    home.classList.remove("hidden");
+
+    setTimeout(() => {
+      home.classList.add("show");
+    }, 50);
+
+  }, 300);
+
+}
+
+/* ================= SHOW IMAGE ================= */
+function showImage() {
+  slideshow.style.opacity = 0.2;
+
+  slideshow.src = currentGallery[currentIndex];
+
+  slideshow.onload = () => {
+    slideshow.style.opacity = 1;
+  };
+}
+
+/* ================= NAVIGATION ================= */
 function nextImage() {
   currentIndex++;
 
@@ -62,7 +100,7 @@ function nextImage() {
     currentIndex = 0;
   }
 
-  showImage(currentIndex);
+  showImage();
 }
 
 function prevImage() {
@@ -72,14 +110,5 @@ function prevImage() {
     currentIndex = currentGallery.length - 1;
   }
 
-  showImage(currentIndex);
+  showImage();
 }
-
-function changeGallery(name) {
-  currentGallery = GALLERIES[name];
-  currentIndex = 0;
-  showImage(currentIndex);
-}
-
-// START
-showImage(currentIndex);
