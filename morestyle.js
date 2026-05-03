@@ -1,4 +1,3 @@
-
 const GALLERIES = {
 
   PlaneAccident: ["images/9111.png","images/9112.png","images/9113.png","images/9114.png"],
@@ -19,14 +18,14 @@ const gallery = document.getElementById("gallery");
 const slideshow = document.getElementById("slideshow");
 const menu = document.getElementById("menu");
 
-/* ===== INTRO ===== */
+/* INTRO */
 window.onload = () => {
   setTimeout(() => {
     menu.classList.add("show");
   }, 1200);
 };
 
-/* ===== OPEN GALLERY ===== */
+/* OPEN GALLERY */
 function openGallery(name) {
 
   currentGallery = GALLERIES[name];
@@ -44,7 +43,7 @@ function openGallery(name) {
   showImage();
 }
 
-/* ===== BACK ===== */
+/* BACK HOME */
 function goHome() {
 
   gallery.classList.remove("active");
@@ -59,7 +58,7 @@ function goHome() {
 
 }
 
-/* ===== IMAGE ===== */
+/* IMAGES */
 function showImage() {
   slideshow.style.opacity = 0.2;
   slideshow.src = currentGallery[currentIndex];
@@ -69,7 +68,6 @@ function showImage() {
   };
 }
 
-/* ===== NAV ===== */
 function nextImage() {
   currentIndex++;
   if (currentIndex >= currentGallery.length) currentIndex = 0;
@@ -82,13 +80,15 @@ function prevImage() {
   showImage();
 }
 
-/* ===== RIPPLE ===== */
+/* RIPPLE */
 document.addEventListener("click", (e) => {
-  const r = document.createElement("span");
-  r.className = "ripple";
-  r.style.left = e.clientX + "px";
-  r.style.top = e.clientY + "px";
-  document.body.appendChild(r);
+  const ripple = document.createElement("span");
+  ripple.className = "ripple";
 
-  setTimeout(() => r.remove(), 600);
+  ripple.style.left = e.clientX + "px";
+  ripple.style.top = e.clientY + "px";
+
+  document.body.appendChild(ripple);
+
+  setTimeout(() => ripple.remove(), 600);
 });
